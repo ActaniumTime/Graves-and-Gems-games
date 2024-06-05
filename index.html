@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graves and Gems game</title>
+  <link rel="stylesheet" href="MainPage.css">
+</head>
+<body>
+  <div class="header">
+    <div class="logoBlock">
+
+      <div class="logo">
+
+        <img src="./img/LogoNoText.png" alt="" id="ImgLogo">
+        <img src="./img/LogoText.png" alt="" id="TextLogo">
+
+      </div>
+
+    </div>
+    <nav class="navigation">
+      <!-- Место для ссылок -->
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </nav>
+  </div>
+
+  <div class="GameSpace">
+    <div class="TheGame">
+      <canvas></canvas>
+    </div>
+    <div class="GameSpace_controlPanel">
+      <div class="health-bar">
+        <span>Health: 100%</span>
+      </div>
+      <button class="pause-button">Pause</button>
+      <button class="restart-button">Restart</button>
+    </div>
+  </div>
+
+<div class="PlayerStats">
+  <div class="CurrentProfile">
+    <div class="hpBar">
+
+    </div>
+    <ul class="ListOfCurrentProfile">
+      <li>
+        <div class="Icon">
+          <img src="" alt="">
+        </div>
+        <div class="Info">
+          <div class="NameStats">
+
+          </div>
+          <div class="StatsNumber"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="GlobalProfile">
+
+  </div>
+  <div class="AccountStats">
+
+  </div>
+</div>
+  
+  <script src="./js/utils.js"></script>
+  <script src="./js/classes/CollisionBlock.js"></script>
+  <script src="./js/classes/Sprite.js"></script>
+  <script src="./js/classes/Player.js"></script>
+  <script src="./js/data/collisions.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
