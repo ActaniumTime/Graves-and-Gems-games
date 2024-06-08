@@ -107,8 +107,7 @@ class Player extends Sprite {
 
   shouldPanCameraUp({ canvas, camera }) {
     if (
-      this.camerabox.position.y + this.camerabox.height + this.velocity.y >=
-      432
+      this.camerabox.position.y + this.camerabox.height + this.velocity.y >= 432
     )
       return
 
@@ -261,4 +260,3 @@ class Player extends Sprite {
     }
   }
 }
-ы
