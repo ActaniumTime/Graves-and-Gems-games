@@ -134,18 +134,35 @@ const camera = {
 };
 
 
+// Создаем массив для хранения всех призраков
+const ghosts = [];
+
+// Создаем 7 призраков и добавляем их в массив
+for (let i = 0; i < 7; i++) {
+  const ghost = new Ghost({
+    position: {
+      x: Math.random() * (canvas.width / 4),
+      y: Math.random() * (canvas.height / 4),
+    },
+    imageSrc: './img/ghost.png', // Путь к изображению призрака
+    frameRate: 1,
+  });
+
+  ghosts.push(ghost);
+}
 
 
-
-// Добавляем призрака
-const ghost = new Ghost({
+const coinImageSrc = './img/Coin.png'; // Путь к изображению монетки
+let coin = new Coin({
   position: {
     x: Math.random() * (canvas.width / 4),
     y: Math.random() * (canvas.height / 4),
   },
-  imageSrc: './img/ghost.png', // Путь к изображению призрака
-  frameRate: 1,
+  imageSrc: coinImageSrc,
 });
+let collectedCoins = 0;
+
+
 
 function animate() {
   window.requestAnimationFrame(animate);
@@ -158,19 +175,38 @@ function animate() {
   background.update();
 
   player.checkForHorizontalCanvasCollision();
-  player.update();
+  player.update
+  ();
 
-  ghost.update();
+  // Обновляем каждого призрака в массиве
+  ghosts.forEach((ghost) => {
+    ghost.update();
+  });
 
-  if (ghost.checkCollision(player)) {
-    // Игрок умирает
-    console.log('Player is dead!');
-    // Здесь можно добавить логику для завершения игры или перезапуска
+  // Проверяем столкновение каждого призрака с игроком
+  ghosts.forEach((ghost) => {
+    if (ghost.checkCollision(player)) {
+      console.log('Player is dead!');
+      // Добавьте здесь логику для завершения игры или перезапуска
+    }
+  });
+
+
+  coin.update();
+  if (coin.checkCollision(player)) {
+    collectedCoins++;
+    console.log(`Coins collected: ${collectedCoins}`);
+    if (collectedCoins >= 20) {
+      console.log('You have collected 20 coins. You win!');
+      // Добавьте здесь логику для завершения игры или перезапуска
+    } else {
+      coin.respawn();
+    }
   }
 
-  
 
-  player.velocity.x = 0
+
+  player.velocity.x = 0;
   if (keys.d.pressed) {
     player.switchSprite('Run');
     player.velocity.x = 2;
@@ -185,6 +221,7 @@ function animate() {
     if (player.lastDirection === 'right') player.switchSprite('Idle');
     else player.switchSprite('IdleLeft');
   }
+
   if (player.velocity.y < 0) {
     player.shouldPanCameraDown({ camera, canvas });
     if (player.lastDirection === 'right') player.switchSprite('Jump');

@@ -1,77 +1,40 @@
 class Coin {
   constructor({ position, imageSrc }) {
     this.position = position;
-    this.width = 16;
-    this.height = 16;
     this.image = new Image();
     this.image.src = imageSrc;
-    this.image.onload = () => {
-      this.loaded = true;
-    };
-    this.image.onerror = () => {
-      console.error('Failed to load coin image at:', imageSrc);
-      this.loaded = false;
-    };
+    this.width = 16;
+    this.height = 16;
+    this.collected = false;
+    this.spawnTime = Date.now();
+    this.lifetime = 20000; // 20 секунд
   }
 
   draw() {
-    if (this.loaded) {
-      c.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
-    }
+    c.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
   }
 
   update() {
     this.draw();
+    if (Date.now() - this.spawnTime > this.lifetime) {
+      this.respawn();
+    }
   }
 
-  static getRandomPosition(canvasWidth, canvasHeight) {
-    const x = Math.floor(Math.random() * (canvasWidth - 16));
-    const y = Math.floor(Math.random() * (canvasHeight - 16));
-    return { x, y };
-  }
-
-  static checkCollision(player, coin) {
+  checkCollision(player) {
     return (
-      player.position.x < coin.position.x + coin.width &&
-      player.position.x + player.width > coin.position.x &&
-      player.position.y < coin.position.y + coin.height &&
-      player.position.y + player.height > coin.position.y
+      player.hitbox.position.x < this.position.x + this.width &&
+      player.hitbox.position.x + player.hitbox.width > this.position.x &&
+      player.hitbox.position.y < this.position.y + this.height &&
+      player.hitbox.position.y + player.hitbox.height > this.position.y
     );
   }
-}
 
-class CoinManager {
-  constructor({ canvasWidth, canvasHeight, imageSrc }) {
-    this.canvasWidth = canvasWidth;
-    this.canvasHeight = canvasHeight;
-    this.imageSrc = imageSrc;
-    this.coins = [];
-    this.collectedCoins = 0;
-    this.totalCoins = 20;
-  }
-
-  addCoin() {
-    if (this.collectedCoins < this.totalCoins) {
-      const position = Coin.getRandomPosition(this.canvasWidth, this.canvasHeight);
-      const coin = new Coin({
-        position,
-        imageSrc: this.imageSrc,
-      });
-      this.coins.push(coin);
-    }
-  }
-
-  updateCoins(player, updateCoinCounter) {
-    if (this.collectedCoins < this.totalCoins) {
-      this.coins.forEach((coin, index) => {
-        coin.update();
-        if (Coin.checkCollision(player, coin)) {
-          this.coins.splice(index, 1);
-          this.collectedCoins++;
-          updateCoinCounter(this.collectedCoins);
-          this.addCoin();
-        }
-      });
-    }
+  respawn() {
+    this.position = {
+      x: Math.random() * (canvas.width / 4 - this.width),
+      y: Math.random() * (canvas.height / 4 - this.height),
+    };
+    this.spawnTime = Date.now();
   }
 }
