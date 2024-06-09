@@ -133,6 +133,20 @@ const camera = {
   },
 };
 
+
+
+
+
+// Добавляем призрака
+const ghost = new Ghost({
+  position: {
+    x: Math.random() * (canvas.width / 4),
+    y: Math.random() * (canvas.height / 4),
+  },
+  imageSrc: './img/ghost.png', // Путь к изображению призрака
+  frameRate: 1,
+});
+
 function animate() {
   window.requestAnimationFrame(animate);
   c.fillStyle = 'white';
@@ -146,7 +160,17 @@ function animate() {
   player.checkForHorizontalCanvasCollision();
   player.update();
 
-  player.velocity.x = 0;
+  ghost.update();
+
+  if (ghost.checkCollision(player)) {
+    // Игрок умирает
+    console.log('Player is dead!');
+    // Здесь можно добавить логику для завершения игры или перезапуска
+  }
+
+  
+
+  player.velocity.x = 0
   if (keys.d.pressed) {
     player.switchSprite('Run');
     player.velocity.x = 2;
@@ -161,7 +185,6 @@ function animate() {
     if (player.lastDirection === 'right') player.switchSprite('Idle');
     else player.switchSprite('IdleLeft');
   }
-
   if (player.velocity.y < 0) {
     player.shouldPanCameraDown({ camera, canvas });
     if (player.lastDirection === 'right') player.switchSprite('Jump');
