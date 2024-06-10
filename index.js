@@ -163,8 +163,8 @@ function displayGameOver() {
   const gameOverInfo = document.createElement('div');
   gameOverInfo.classList.add('game-over-info');
   gameOverInfo.innerHTML = `
-    <p>Вы погибли. Количество собранных монет: ${collectedCoins}</p>
-    <button class="restart-button" >Начать заново</button>
+    <p>You died. Count of collectebel coins: ${collectedCoins}</p>
+    <button class="restart-button" >Try again...</button>
   `;
   document.body.appendChild(gameOverInfo);
 
@@ -202,13 +202,35 @@ function updateCoinCount() {
 }
 
 
+function displayGameOverCoin() {
+  const gameOverInfo = document.createElement('div');
+  gameOverInfo.classList.add('game-over-info');
+  gameOverInfo.innerHTML = `
+    <p>You win! <br>
+    You have ound all 20 coins!</p>
+    <button class="restart-button" >Try again!</button>
+  `;
+  document.body.appendChild(gameOverInfo);
 
+  const restartButton = gameOverInfo.querySelector('.restart-button');
+  restartButton.addEventListener('click', () => {
+    document.body.removeChild(gameOverInfo);
+    restartGame();
+  });
+}
 
 
 function animate() {
-  if (gameOver) {
+  if (gameOver == true && totalCoins !=20) {
     displayGameOver();
     return;
+  }
+  else{
+    if(gameOver==true && totalCoins==20)
+      {
+        displayGameOverCoin()
+        return
+      }
   }
 
   window.requestAnimationFrame(animate);
@@ -238,7 +260,7 @@ function animate() {
     collectedCoins++;
     totalCoins++; // Увеличиваем общее количество монет
     if (collectedCoins >= 20) {
-      console.log('You have collected 20 coins. You win!');
+      gameOver = true;
     } else {
       coin.respawn();
     }
@@ -305,3 +327,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const restartButton = document.querySelector('.restart-button');
   restartButton.addEventListener('click', restartGame);
 });
+
+
+document.getElementById('show-more-rules').addEventListener('click', function() {
+  var moreRules = document.getElementById('more-rules');
+  if (moreRules.classList.contains('hidden')) {
+    moreRules.classList.remove('hidden');
+  } else {
+    moreRules.classList.add('hidden');
+  }
+});
+

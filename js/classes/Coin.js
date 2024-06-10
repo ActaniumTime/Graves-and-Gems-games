@@ -32,8 +32,8 @@ class Coin {
 
   respawn() {
     this.position = {
-      x: Math.random() * (canvas.width / 4 - this.width),
-      y: Math.random() * (canvas.height / 4 - this.height),
+      x: Math.random() * (canvas.width /2 - this.width),
+      y: Math.random() * (canvas.height /2- this.height),
     };
     this.spawnTime = Date.now();
   }

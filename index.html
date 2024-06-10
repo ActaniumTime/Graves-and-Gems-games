@@ -9,17 +9,12 @@
 <body>
   <div class="header">
     <div class="logoBlock">
-
       <div class="logo">
-
         <img src="./img/LogoNoText.png" alt="" id="ImgLogo">
         <img src="./img/LogoText.png" alt="" id="TextLogo">
-
       </div>
-
     </div>
     <nav class="navigation">
-      <!-- Место для ссылок -->
       <a href="#">Link 1</a>
       <a href="#">Link 2</a>
       <a href="#">Link 3</a>
@@ -33,37 +28,41 @@
     <div class="GameSpace_controlPanel">
       <div id="coin-count" class="health-bar">Coins: <span id="collected-coins">0</span></div>
       <div class="health-bar">Total Coins: <span id="total-coins">0</span></div>
-
     </div>
   </div>
 
-  
-<div class="PlayerStats">
-  <div class="CurrentProfile">
-    <div class="hpBar">
-
+  <div class="GameRules">
+    <h2>Game Rules</h2>
+    <p>Collect as many coins as possible while avoiding ghosts. Use arrow keys to move. Have fun!</p>
+    <button id="show-more-rules">Show More Rules</button>
+    <div id="more-rules" class="hidden">
+      <ul class="rule-tiles">
+        <li class="rule-tile ">Avoid ghosts to stay alive.</li>
+        <li class="rule-tile ">Collect all coins and run away!</li>
+        <li class="rule-tile">.</li>
+      </ul>
     </div>
-    <ul class="ListOfCurrentProfile">
-      <li>
-        <div class="Icon">
-          <img src="" alt="">
-        </div>
-        <div class="Info">
-          <div class="NameStats">
+  </div>
 
+  <div class="PlayerStats">
+    <div class="CurrentProfile">
+      <div class="hpBar"></div>
+      <ul class="ListOfCurrentProfile">
+        <li>
+          <div class="Icon">
+            <img src="" alt="">
           </div>
-          <div class="StatsNumber"></div>
-        </div>
-      </li>
-    </ul>
+          <div class="Info">
+            <div class="NameStats"></div>
+            <div class="StatsNumber"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="GlobalProfile"></div>
+    <div class="AccountStats"></div>
   </div>
-  <div class="GlobalProfile">
 
-  </div>
-  <div class="AccountStats">
-
-  </div>
-</div>
   <script src="./js/classes/Coin.js"></script>
   <script src="./js/utils.js"></script>
   <script src="./js/classes/CollisionBlock.js"></script>
