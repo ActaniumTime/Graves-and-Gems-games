@@ -3,8 +3,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Press Start 2P', cursive;
-  background-color: #2b2b2b;
-  color: #e0d5bd;
+  background-color: #3b2f2f; /* Темный фон */
+  color: #e0d5bd; /* Светлый текст */
 }
 
 .header {
@@ -12,8 +12,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #1e1e1e;
-  border-bottom: 2px solid #4b4b4b;
+  background-color: #564c46; /* Темный коричневый */
+  border-bottom: 2px solid #aa8c6f; /* Светло-коричневая граница */
 }
 
 .logo {
@@ -21,8 +21,8 @@ body {
   height: 80px;
   display: flex;
   padding: 10px;
-  background: linear-gradient(to right, #3c3c3c, #2b2b2b, #3c3c3c);
-  border: 1px solid #6d4c41;
+  background: linear-gradient(to right, #e0d5bd, #aa8c6f, #e0d5bd); /* Бежевый градиент */
+  border: 1px solid #aa8c6f;
   border-radius: 10px;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
   position: relative;
@@ -35,7 +35,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
 }
 
 #TextLogo {
@@ -43,7 +43,7 @@ body {
 }
 
 .navigation a {
-  color: #ffffff;
+  color: #e0d5bd; /* Светлый текст */
   text-decoration: none;
   margin: 0 10px;
 }
@@ -56,16 +56,16 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background-color: #2b2b2b;
+  background-color: #3b2f2f; /* Темный фон */
 }
 
 .TheGame {
   flex-grow: 1;
-  background-color: #2b2b2b;
+  background-color: #3b2f2f; /* Темный фон */
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #4b4b4b;
+  border: 2px solid #aa8c6f; /* Светло-коричневая граница */
   border-radius: 10px;
 }
 
@@ -75,32 +75,32 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding: 10px;
-  background-color: #1e1e1e;
-  border: 2px solid #4b4b4b;
+  background-color: #564c46; /* Темный коричневый */
+  border: 2px solid #aa8c6f; /* Светло-коричневая граница */
   border-radius: 10px;
 }
 
 .health-bar {
-  background-color: #3c3c3c;
+  background-color: #aa8c6f; /* Светло-коричневая */
   padding: 10px;
   text-align: center;
   margin-bottom: 10px;
   border-radius: 5px;
-  color: #e0d5bd;
+  color: #e0d5bd; /* Светлый текст */
 }
 
 .pause-button, .restart-button {
   padding: 10px;
   margin: 5px 0;
-  background-color: #2b2b2b;
-  color: #e0d5bd;
-  border: 1px solid #6d4c41;
+  background-color: #564c46; /* Темный коричневый */
+  color: #e0d5bd; /* Светлый текст */
+  border: 1px solid #aa8c6f; /* Светло-коричневая граница */
   border-radius: 5px;
   cursor: pointer;
 }
 
 .pause-button:hover, .restart-button:hover {
-  background-color: #4b4b4b;
+  background-color: #8c6b51; /* Тёмно-светло-коричневая */
 }
 
 .PlayerStats {
@@ -124,14 +124,14 @@ body {
 
 .progress-bar {
   width: 100%;
-  background-color: #3c3c3c;
+  background-color: #aa8c6f; /* Светло-коричневая */
   border-radius: 5px;
   margin-top: 20px;
 }
 
 .progress {
   height: 20px;
-  background-color: #4caf50;
+  background-color: #4caf50; /* Зеленый */
   border-radius: 5px;
 }
 
@@ -140,11 +140,11 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #1e1e1e;
+  background-color: #564c46; /* Темный коричневый */
   padding: 20px;
-  border: 2px solid #4b4b4b;
+  border: 2px solid #aa8c6f; /* Светло-коричневая граница */
   border-radius: 10px;
-  color: #e0d5bd;
+  color: #e0d5bd; /* Светлый текст */
   text-align: center;
 }
 
@@ -154,21 +154,21 @@ body {
 
 .game-over-info button {
   padding: 10px;
-  background-color: #2b2b2b;
-  color: #e0d5bd;
-  border: 1px solid #6d4c41;
+  background-color: #564c46; /* Темный коричневый */
+  color: #e0d5bd; /* Светлый текст */
+  border: 1px solid #aa8c6f; /* Светло-коричневая граница */
   border-radius: 5px;
   cursor: pointer;
 }
 
 .game-over-info button:hover {
-  background-color: #4b4b4b;
+  background-color: #8c6b51; /* Тёмно-светло-коричневая */
 }
 
 .GameRules {
-  background-color: #1e1e1e;
+  background-color: #564c46; /* Темный коричневый */
   padding: 20px;
-  border: 2px solid #4b4b4b;
+  border: 2px solid #aa8c6f; /* Светло-коричневая граница */
   border-radius: 10px;
   margin: 20px;
   text-align: center;
@@ -188,17 +188,17 @@ body {
 }
 
 #show-more-rules {
-  border: 2px solid #4b4b4b;
+  border: 2px solid #aa8c6f; /* Светло-коричневая граница */
   border-radius: 10px;
   padding: 10px 20px;
-  background-color: #2b2b2b;
-  color: #e0d5bd;
+  background-color: #564c46; /* Темный коричневый */
+  color: #e0d5bd; /* Светлый текст */
   cursor: pointer;
   animation: buttonPulse 1.5s infinite;
 }
 
 #show-more-rules:hover {
-  background-color: #4b4b4b;
+  background-color: #8c6b51; /* Тёмно-светло-коричневая */
 }
 
 .hidden {
@@ -214,8 +214,8 @@ body {
 }
 
 .rule-tile {
-  background-color: #2b2b2b;
-  border: 2px solid #4b4b4b;
+  background-color: #564c46; /* Темный коричневый */
+  border: 2px solid #aa8c6f; /* Светло-коричневая граница */
   border-radius: 10px;
   padding: 20px;
   margin: 10px;
@@ -227,7 +227,7 @@ body {
 
 .rule-tile:hover {
   transform: scale(1.1);
-  background-color: #4b4b4b;
+  background-color: #8c6b51; /* Тёмно-светло-коричневая */
 }
 
 @keyframes fadeIn {
@@ -244,4 +244,62 @@ body {
   0% { transform: scale(1); }
   50% { transform: scale(1.05); }
   100% { transform: scale(1); }
+}
+
+
+
+
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Optional - Adds transition for background color change */
+body {
+  transition: background-color 0.5s, color 0.5s;
 }

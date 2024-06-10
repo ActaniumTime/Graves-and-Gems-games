@@ -4,21 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Graves and Gems game</title>
-  <link rel="stylesheet" href="MainPage.css">
+  <link id="themeStylesheet" rel="stylesheet" href="MainPage.css">
 </head>
 <body>
   <div class="header">
-    <div class="logoBlock">
-      <div class="logo">
-        <img src="./img/LogoNoText.png" alt="" id="ImgLogo">
-        <img src="./img/LogoText.png" alt="" id="TextLogo">
+    
+    <div class="Nav_Block1">
+      <div class="logoBlock">
+        <div class="logo">
+          <img src="./img/LogoNoText.png" alt="" id="ImgLogo">
+          <img src="./img/LogoText.png" alt="" id="TextLogo">
+        </div>
       </div>
     </div>
-    <nav class="navigation">
-      <a href="C:\Users\spart\OneDrive\Рабочий стол\vertical-platformer-main\Main.html">Main</a>
-      <a href="C:\Users\spart\OneDrive\Рабочий стол\vertical-platformer-main\GameProto.html">Game-Prototype</a>
-      <a href="C:\Users\spart\OneDrive\Рабочий стол\vertical-platformer-main\AboutUs.html">About us</a>
-    </nav>
+
+    <div class="Nav_Block2" style="display: flex;">
+      <nav class="navigation">
+        <a href="C:\Users\spart\OneDrive\Рабочий стол\vertical-platformer-main\Main.html">Main</a>
+        <a href="C:\Users\spart\OneDrive\Рабочий стол\vertical-platformer-main\GameProto.html">Game-Prototype</a>
+        <a href="C:\Users\spart\OneDrive\Рабочий стол\vertical-platformer-main\AboutUs.html">About us</a>
+      </nav>
+      
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="theme-toggle">
+          <input type="checkbox" id="theme-toggle">
+          <div class="slider round"></div>
+        </label>
+      </div>
+    </div>
+
   </div>
 
   <div class="GameSpace">
@@ -71,5 +85,6 @@
   <script src="./js/data/collisions.js"></script>
   <script src="./js/classes/Ghost.js"></script>
   <script src="index.js"></script>
+  <script src="./js/theme-toggle2.js"></script>
 </body>
 </html>

@@ -4,37 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Graves and Gems - Description</title>
-  <link rel="stylesheet" href="DescriptionPage.css">
+  <link id="themeStylesheet" rel="stylesheet" href="DescriptionPage.css">
 </head>
 <body>
   <div class="header">
-    <div class="logoBlock">
-      <div class="logo">
-        <img src="./img/LogoNoText.png" alt="" id="ImgLogo">
-        <img src="./img/LogoText.png" alt="" id="TextLogo">
+
+
+    <div class="Nav_Block1">
+      <div class="logoBlock">
+        <div class="logo">
+          <img src="./img/LogoNoText.png" alt="" id="ImgLogo">
+          <img src="./img/LogoText.png" alt="" id="TextLogo">
+        </div>
       </div>
     </div>
-    <nav class="navigation">
-      <a href="C:\Users\spart\OneDrive\Рабочий стол\vertical-platformer-main\Main.html">Main</a>
-      <a href="C:\Users\spart\OneDrive\Рабочий стол\vertical-platformer-main\GameProto.html">Game-Prototype</a>
-      <a href="C:\Users\spart\OneDrive\Рабочий стол\vertical-platformer-main\AboutUs.html">About us</a>
-    </nav>
+
+    <div class="Nav_Block2" style="display: flex;">
+      <nav class="navigation">
+        <a href="C:\Users\spart\OneDrive\Рабочий стол\vertical-platformer-main\Main.html">Main</a>
+        <a href="C:\Users\spart\OneDrive\Рабочий стол\vertical-platformer-main\GameProto.html">Game-Prototype</a>
+        <a href="C:\Users\spart\OneDrive\Рабочий стол\vertical-platformer-main\AboutUs.html">About us</a>
+      </nav>
+      
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="theme-toggle">
+          <input type="checkbox" id="theme-toggle">
+          <div class="slider round"></div>
+        </label>
+      </div>
+    </div>
+
   </div>
 
   <div class="jumbotron">
     <div class="slides">
       <div class="slide">
-        <img src="./img/Pic1.avif" alt="Slide 1">
+        <img src="./img/Pic1.avif" style="height: 506px;" alt="Slide 1">
         <div class="slide-text">
-          <h3>Discover New Levels</h3>
-          <p>Unlock exciting new challenges and adventures.</p>
+          <h3>Discover New heroes and their story!</h3>
+          <p>recruit the new knight, which will tell you the new mistory story. Also keep a new classes!</p>
         </div>
       </div>
       <div class="slide">
         <img src="./img/Pic2.webp" alt="Slide 2">
         <div class="slide-text">
-          <h3>Meet New Characters</h3>
-          <p>Encounter unique characters and uncover their stories.</p>
+          <h3>Meet New Enemy!</h3>
+          <p>Encounter unique characters and uncover their stories. Fight with a new enemy from darkness!</p>
         </div>
       </div>
       <div class="slide">
@@ -48,9 +63,9 @@
     <button class="next" onclick="changeSlide(1)">&#10095;</button>
     </div>
     <div class="ad">
-      <h2>Unlock the Full Adventure!</h2>
-      <p>Discover more levels, challenges, and secrets in the full version of Graves and Gems. Get it now!</p>
-      <a href="#" class="cta-button">Get Full Version</a>
+      <h2>Unlock the Full Adventure in future!</h2>
+      <p>Discover more levels, challenges, and secrets in the full version of Graves and Gems. Get it soon!</p>
+      <a href="#" class="cta-button">Preorder the game !</a>
     </div>
   </div>
 
@@ -59,42 +74,42 @@
     <p>Get a sneak peek at the game with our early access prototype. Play for free!</p>
     <div class="prototype-cards">
       <div class="prototype-card">
-        <h3>Graves and Gems Alpha</h3>
+        <h3>Graves and Gems early prototype</h3>
         <p>An early version of the game featuring one level and basic gameplay mechanics.</p>
         <a href="#" class="cta-button">Play Now</a>
       </div>
       <div class="prototype-card">
-        <h3>Graves and Gems Beta</h3>
-        <p>A more polished version with additional levels and improved gameplay.</p>
-        <a href="#" class="cta-button">Play Now</a>
+        <h3>Graves and Gems GitHub edition</h3>
+        <p>Do you wanna to find some secrets in our game, or try it in your own ? Download the game and find something!</p>
+        <a href="#" class="cta-button">Go to GitHub</a>
       </div>
     </div>
   </div>
 
   <div class="container">
     <div class="card">
-      <img src="graveyard.png" alt="Graveyard">
+      <img src="./img/p1.png" alt="Graveyard">
       <h2>The Spooky Graveyard</h2>
       <h3>Explore the Haunted Grounds</h3>
       <p>Descend into the eerie graveyard where restless spirits roam. Collect gems while avoiding lurking ghosts.</p>
       <p class="author">Written by Ghostly Wanderer</p>
     </div>
     <div class="card">
-      <img src="mystic_cave.png" alt="Mystic Cave">
+      <img src="./img/p2.webp" alt="Mystic Cave">
       <h2>The Mystic Cave</h2>
       <h3>Unravel Ancient Mysteries</h3>
       <p>Journey through the labyrinthine tunnels of the mystic cave. Beware of traps and uncover hidden treasures.</p>
       <p class="author">Penned by Cave Explorer</p>
     </div>
     <div class="card">
-      <img src="enchanted_forest.png" alt="Enchanted Forest">
+      <img src="./img/p3.png" alt="Enchanted Forest">
       <h2>The Enchanted Forest</h2>
       <h3>Find Magic in Nature</h3>
       <p>Wander through the enchanted forest where mythical creatures dwell. Gather enchanted flora and fauna to aid your quest.</p>
       <p class="author">Crafted by Forest Guardian</p>
     </div>
     <div class="card">
-      <img src="mysterious_castle.png" alt="Mysterious Castle">
+      <img src="./img/p4.webp" alt="Mysterious Castle">
       <h2>The Mysterious Castle</h2>
       <h3>Confront the Dark Lord</h3>
       <p>Brave the ancient halls of the mysterious castle where the Dark Lord resides. Unlock its secrets and face the ultimate challenge.</p>
@@ -104,3 +119,4 @@
 </body>
 </html>
 <script src="./js/slides.js"></script>
+<script src="./js/theme-toggle1.js"></script>
