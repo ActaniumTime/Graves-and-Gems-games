@@ -133,26 +133,21 @@ const camera = {
   },
 };
 
-
-// Создаем массив для хранения всех призраков
 const ghosts = [];
-
-// Создаем 7 призраков и добавляем их в массив
 for (let i = 0; i < 7; i++) {
   const ghost = new Ghost({
     position: {
       x: Math.random() * (canvas.width / 4),
       y: Math.random() * (canvas.height / 4),
     },
-    imageSrc: './img/ghost.png', // Путь к изображению призрака
+    imageSrc: './img/ghost.png',
     frameRate: 1,
   });
 
   ghosts.push(ghost);
 }
 
-
-const coinImageSrc = './img/Coin.png'; // Путь к изображению монетки
+const coinImageSrc = './img/Coin.png';
 let coin = new Coin({
   position: {
     x: Math.random() * (canvas.width / 4),
@@ -162,9 +157,42 @@ let coin = new Coin({
 });
 let collectedCoins = 0;
 
+let gameOver = false;
 
+function displayGameOver() {
+  c.fillStyle = 'rgba(0, 0, 0, 0.7)';
+  c.fillRect(0, 0, canvas.width, canvas.height);
+  c.fillStyle = 'white';
+  c.font = '30px Arial';
+  c.fillText('Игра закончена. Вас убили.', canvas.width / 2 - 150, canvas.height / 2 - 30);
+  const button = document.createElement('button');
+  button.innerText = 'Начать заново';
+  button.style.position = 'absolute';
+  button.style.left = `${canvas.width / 2 - 50}px`;
+  button.style.top = `${canvas.height / 2 + 10}px`;
+  document.body.appendChild(button);
+  button.addEventListener('click', () => {
+    document.body.removeChild(button);
+    restartGame();
+  });
+}
+
+function restartGame() {
+  gameOver = false;
+  collectedCoins = 0;
+  player.position = { x: 100, y: 300 };
+  player.velocity = { x: 0, y: 0 };
+  coin.respawn();
+  ghosts.forEach(ghost => ghost.respawn()); // Assuming you have a respawn method
+  animate();
+}
 
 function animate() {
+  if (gameOver) {
+    displayGameOver();
+    return;
+  }
+
   window.requestAnimationFrame(animate);
   c.fillStyle = 'white';
   c.fillRect(0, 0, canvas.width, canvas.height);
@@ -175,36 +203,25 @@ function animate() {
   background.update();
 
   player.checkForHorizontalCanvasCollision();
-  player.update
-  ();
+  player.update();
 
-  // Обновляем каждого призрака в массиве
   ghosts.forEach((ghost) => {
     ghost.update();
-  });
-
-  // Проверяем столкновение каждого призрака с игроком
-  ghosts.forEach((ghost) => {
     if (ghost.checkCollision(player)) {
-      console.log('Player is dead!');
-      // Добавьте здесь логику для завершения игры или перезапуска
+      gameOver = true;
+      Console.log('DIE')
     }
   });
-
 
   coin.update();
   if (coin.checkCollision(player)) {
     collectedCoins++;
-    console.log(`Coins collected: ${collectedCoins}`);
     if (collectedCoins >= 20) {
       console.log('You have collected 20 coins. You win!');
-      // Добавьте здесь логику для завершения игры или перезапуска
     } else {
       coin.respawn();
     }
   }
-
-
 
   player.velocity.x = 0;
   if (keys.d.pressed) {
