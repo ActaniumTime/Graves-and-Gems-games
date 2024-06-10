@@ -1,6 +1,9 @@
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 
+let originalCanvasWidth = 1280;
+let originalCanvasHeight = 720;
+
 canvas.width = 1280;
 canvas.height = 720;
 
@@ -160,22 +163,22 @@ let collectedCoins = 0;
 let gameOver = false;
 
 function displayGameOver() {
-  c.fillStyle = 'rgba(0, 0, 0, 0.7)';
-  c.fillRect(0, 0, canvas.width, canvas.height);
-  c.fillStyle = 'white';
-  c.font = '30px Arial';
-  c.fillText('Игра закончена. Вас убили.', canvas.width / 2 - 150, canvas.height / 2 - 30);
-  const button = document.createElement('button');
-  button.innerText = 'Начать заново';
-  button.style.position = 'absolute';
-  button.style.left = `${canvas.width / 2 - 50}px`;
-  button.style.top = `${canvas.height / 2 + 10}px`;
-  document.body.appendChild(button);
-  button.addEventListener('click', () => {
-    document.body.removeChild(button);
+  const gameOverInfo = document.createElement('div');
+  gameOverInfo.classList.add('game-over-info');
+  gameOverInfo.innerHTML = `
+    <p>Вы погибли. Количество собранных монет: ${collectedCoins}</p>
+    <button class="restart-button" onclick = " restartGame()">Начать заново</button>
+  `;
+  document.body.appendChild(gameOverInfo);
+
+  const restartButton = gameOverInfo.querySelector('.restart-button');
+  restartButton.addEventListener('click', () => {
+    document.body.removeChild(gameOverInfo);
     restartGame();
   });
 }
+
+
 
 function restartGame() {
   gameOver = false;
@@ -184,8 +187,18 @@ function restartGame() {
   player.velocity = { x: 0, y: 0 };
   coin.respawn();
   ghosts.forEach(ghost => ghost.respawn()); // Assuming you have a respawn method
+
+  // Сбросить позицию камеры и масштабируемость
+  camera.position = { x: 0, y: -backgroundImageHeight + scaledCanvas.height };
+  scaledCanvas.width = originalCanvasWidth / 2; // Используем originalCanvasWidth
+  scaledCanvas.height = originalCanvasHeight / 2; // Используем originalCanvasHeight
+
   animate();
 }
+
+
+
+
 
 function animate() {
   if (gameOver) {
@@ -277,4 +290,9 @@ window.addEventListener('keyup', (event) => {
       keys.a.pressed = false;
       break;
   }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const restartButton = document.querySelector('.restart-button');
+  restartButton.addEventListener('click', restartGame);
 });
