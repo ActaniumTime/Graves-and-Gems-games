@@ -1,9 +1,6 @@
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 
-let originalCanvasWidth = 1280;
-let originalCanvasHeight = 720;
-
 canvas.width = 1280;
 canvas.height = 720;
 
@@ -167,7 +164,7 @@ function displayGameOver() {
   gameOverInfo.classList.add('game-over-info');
   gameOverInfo.innerHTML = `
     <p>Вы погибли. Количество собранных монет: ${collectedCoins}</p>
-    <button class="restart-button" onclick = " restartGame()">Начать заново</button>
+    <button class="restart-button" >Начать заново</button>
   `;
   document.body.appendChild(gameOverInfo);
 
@@ -178,7 +175,7 @@ function displayGameOver() {
   });
 }
 
-
+let totalCoins = 0; // Переменная для хранения общего количества монет
 
 function restartGame() {
   gameOver = false;
@@ -186,14 +183,22 @@ function restartGame() {
   player.position = { x: 100, y: 300 };
   player.velocity = { x: 0, y: 0 };
   coin.respawn();
-  ghosts.forEach(ghost => ghost.respawn()); // Assuming you have a respawn method
+  ghosts.forEach(ghost => ghost.respawn()); // Сброс позиции призраков
 
-  // Сбросить позицию камеры и масштабируемость
+  // Измените размер холста на правильные значения
+  canvas.width = 1280;
+  canvas.height = 720;
+
+  // Сбросить позицию камеры
   camera.position = { x: 0, y: -backgroundImageHeight + scaledCanvas.height };
-  scaledCanvas.width = originalCanvasWidth / 2; // Используем originalCanvasWidth
-  scaledCanvas.height = originalCanvasHeight / 2; // Используем originalCanvasHeight
 
   animate();
+  updateCoinCount(); // Обновляем отображение количества монет
+}
+
+function updateCoinCount() {
+  document.getElementById('collected-coins').textContent = collectedCoins;
+  document.getElementById('total-coins').textContent = totalCoins; // Общее количество монет выводится без изменений
 }
 
 
@@ -227,13 +232,17 @@ function animate() {
   });
 
   coin.update();
+
+
   if (coin.checkCollision(player)) {
     collectedCoins++;
+    totalCoins++; // Увеличиваем общее количество монет
     if (collectedCoins >= 20) {
       console.log('You have collected 20 coins. You win!');
     } else {
       coin.respawn();
     }
+    updateCoinCount(); // Обновляем отображение количества монет
   }
 
   player.velocity.x = 0;
