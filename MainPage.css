@@ -219,7 +219,6 @@ body {
   border-radius: 10px;
   padding: 20px;
   margin: 10px;
-  width: 200px;
   text-align: center;
   transition: transform 0.2s;
   animation: tileFadeIn 0.5s ease-in-out;
@@ -302,6 +301,46 @@ input:checked + .slider:before {
 /* Optional - Adds transition for background color change */
 body {
   transition: background-color 0.5s, color 0.5s;
+}
+
+
+
+.card {
+  background-color: #564c46;
+  border: 1px solid #aa8c6f;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.card h2 {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #e0d5bd;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin: 5px 0;
+  color: #e0d5bd;
+}
+
+.card p {
+  font-size: 16px;
+  color: #e0d5bd;
+}
+
+.card .author {
+  font-size: 14px;
+  color: #aa8c6f;
+  margin-top: 10px;
 }
 
 

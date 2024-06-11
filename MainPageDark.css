@@ -466,7 +466,6 @@ body {
   border-radius: 10px;
   padding: 20px;
   margin: 10px;
-  width: 200px;
   text-align: center;
   transition: transform 0.2s;
   animation: tileFadeIn 0.5s ease-in-out;
@@ -548,6 +547,46 @@ input:checked + .slider:before {
 /* Optional - Adds transition for background color change */
 body {
   transition: background-color 0.5s, color 0.5s;
+}
+
+
+
+.card {
+  background-color: #1e1e1e; /* Темный фон */
+  border: 2px solid #4b4b4b; /* Темная граница */
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.card h2 {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #e0d5bd; /* Светлый текст */
+}
+
+.card h3 {
+  font-size: 18px;
+  margin: 5px 0;
+  color: #e0d5bd; /* Светлый текст */
+}
+
+.card p {
+  font-size: 16px;
+  color: #e0d5bd; /* Светлый текст */
+}
+
+.card .author {
+  font-size: 14px;
+  color: #6d4c41; /* Светло-коричневый текст */
+  margin-top: 10px;
 }
 
 
